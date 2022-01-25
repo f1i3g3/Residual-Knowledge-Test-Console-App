@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ResidualKnowledgeTestApp": {
+      "commandName": "Project",
+      "commandLineArgs": "./user_files/Приложение_18_5008_1.docx ./user_files/Контингент(1).xlsx ./user_files/msformsAlg.xlsx ./user_files/msformsCompArc.xlsx ./user_files/test.pdf ./user_files/compArc.txt"
+    }
+  }
+}
