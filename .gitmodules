@@ -1,6 +1,0 @@
-[submodule "curriculum-parser"]
-	path = curriculum-parser
-	url = https://github.com/resueman/curriculum-parser
-[submodule "ResidualKnowledgeTestApp/curriculum-parser"]
-	path = ResidualKnowledgeTestApp/curriculum-parser
-	url = https://github.com/resueman/curriculum-parser.git
