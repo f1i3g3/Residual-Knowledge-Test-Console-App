@@ -5,14 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using ContingentParser;
 using CurriculumParser;
-using ResidualKnowledgeConsoleApp.ResidualKnowledgeInputFilesParser;
+using ResidualKnowledgeTestApp.ResidualKnowledgeInputFilesParser;
 
 namespace ResidualKnowledgeConsoleApp
 {
 	public class Generator
 	{
-		public static string Generate(DocxCurriculum curriculum, Contingent contingent, List<CheckingDiscipline> checkingDisciplines)
+		public static string Generate(/*DocxCurriculum curriculum, Contingent contingent, List<CheckingDiscipline> checkingDisciplines*/)
 		{
+			/*
 			try
 			{
 				var groups = contingent
@@ -53,10 +54,10 @@ namespace ResidualKnowledgeConsoleApp
 					d.Questions.AddRange(result.Questions);
 				}
 
-				/*
+				//
 				var mcrParser = new MidCertificationResultsParser(d); // нужен ли?
 				mcrParser.TryParseMidCertificationResults(out midCertificationResult);  // парсер отдельного файла?
-				*/
+				//
 
 				var spreadsheetGenerator = new GoogleSpreadsheetGenerator(userChoice, groups, competenceCriterion, studentAnswers, midCertificationResult);
 				spreadsheetGenerator.Generate(); // exception point
@@ -67,6 +68,8 @@ namespace ResidualKnowledgeConsoleApp
 			{
 				return null;
 			}
+			*/
+			return null;
 		}
 	}
 }
