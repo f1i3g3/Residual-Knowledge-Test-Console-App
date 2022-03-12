@@ -1,0 +1,3 @@
+[submodule "ConsoleApp/curriculum-parser"]
+	path = ConsoleApp/curriculum-parser
+	url = https://github.com/resueman/curriculum-parser.git
