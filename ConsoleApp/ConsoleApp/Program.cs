@@ -7,7 +7,7 @@ using ConsoleApp.InputFilesParser;
 
 namespace ConsoleApp
 {
-    partial class Program
+    partial class Program // Sample of working console app
     {
         static void Main(string[] args)
         {

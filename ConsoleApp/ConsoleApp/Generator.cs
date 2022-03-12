@@ -7,7 +7,7 @@ using ContingentParser;
 using CurriculumParser;
 using ConsoleApp.InputFilesParser;
 
-namespace ResidualKnowledgeConsoleApp
+namespace ConsoleApp
 {
 	public class Generator
 	{
