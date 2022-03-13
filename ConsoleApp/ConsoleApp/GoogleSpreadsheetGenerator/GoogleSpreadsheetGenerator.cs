@@ -24,7 +24,7 @@ namespace ConsoleApp
         private string spreadsheetId;
         private string sheet;
 
-        const string APP_TOKEN_FILE = "../../credentials.json";
+        const string APP_TOKEN_FILE = "../../../credentials.json";
         const string USER_TOKEN_FOLDER = "user_token";
 
         static SheetsService service;
@@ -75,7 +75,7 @@ namespace ConsoleApp
             disciplineCriteriaRows = new List<(Discipline Discipline, int Row)>();
 
             UserCredential credential;
-            using (var stream = new FileStream(APP_TOKEN_FILE, FileMode.Open, FileAccess.Read))
+            using (var stream = new FileStream(AppDomain.CurrentDomain.BaseDirectory + APP_TOKEN_FILE, FileMode.Open, FileAccess.Read))
             {
                 credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.Load(stream).Secrets,
@@ -578,7 +578,7 @@ namespace ConsoleApp
             clmn = InsertStudentNames('A', currentRow).Column;
             currentRow = 1 + InsertPercentageOfStudentsCompetenceFormation(clmn, currentRow).Row;
 
-            currentRow = 1 + InsertSheetByGroupsInfo('A', currentRow).Row;
+            currentRow = 1 + InsertSheetByGroupsInfo('A', currentRow).Row;  // ArgumentOutOfRangeException
 
             // student 5-scale marks + analytics by discipline based on midterm certification 
             (clmn, currentRow) = InsertBoldHeader(Headers.MidtermCerificationMarksHeader, 'A', currentRow);

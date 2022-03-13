@@ -4,13 +4,28 @@ using System.Threading.Tasks;
 using ContingentParser;
 using CurriculumParser;
 using ConsoleApp.InputFilesParser;
+using System.IO;
+using System;
 
 namespace ConsoleApp
 {
     partial class Program // Sample of working console app
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            string path = AppDomain.CurrentDomain.BaseDirectory + "/../../../user_files";
+
+            string[] args = new string[]
+            {
+                Path.Combine(path, "curriculum.docx"),
+                Path.Combine(path, "contingent.xlsx"),
+                Path.Combine(path, "msformsAlg.xlsx"),
+                Path.Combine(path, "msformsCompArc.xlsx"),
+                Path.Combine(path, "alg.txt"),
+                Path.Combine(path, "compArc.txt"),
+            };
+
+
             var curriculum = new DocxCurriculum(args[0]);
             var contingent = new Contingent(args[1]); // Контингента нет !!!!!
             var MsFormsAlgebra = args[2];
