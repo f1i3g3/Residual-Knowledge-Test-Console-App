@@ -6,3 +6,4 @@
 *.csproj.user
 *.datasource
 *.settings
+/ConsoleApp/ConsoleApp/user_files/credentials.json
