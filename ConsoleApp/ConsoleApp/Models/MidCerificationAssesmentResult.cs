@@ -1,6 +1,6 @@
 ﻿namespace ConsoleApp
 {
-    class MidCerificationAssesmentResult
+    public class MidCerificationAssesmentResult
     {
         public MidCerificationAssesmentResult(string student, 
             string discipline, string midtermCertificationMark)

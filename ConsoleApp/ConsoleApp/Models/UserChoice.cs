@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace ConsoleApp
 {
-    class UserChoice
+    public class UserChoice
     {
         public UserChoice(User user, ICurriculumWithElectiveBlocks curriculum, 
             Contingent contingent, List<CheckingDiscipline> checkingDisciplines)

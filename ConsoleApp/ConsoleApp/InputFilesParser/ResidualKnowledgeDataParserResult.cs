@@ -9,7 +9,7 @@ namespace ConsoleApp.InputFilesParser
     /// 2) List<StudentAnswer>, которые нужны для вставки в самое начало гугл-таблицы
     /// </summary>
     /// 
-    class ResidualKnowledgeDataParserResult
+    public class ResidualKnowledgeDataParserResult
     {
         public ResidualKnowledgeDataParserResult(List<Question> questions, List<StudentAnswer> studentAnswers, 
             List<MidCerificationAssesmentResult> midCerificationResults, bool formulationsParsingSuccess, 
