@@ -7,7 +7,7 @@ using DocumentFormat.OpenXml.Packaging;
 
 namespace ConsoleApp.InputFilesParser
 {
-    class ResidualKnowledgeDataParser
+    public class ResidualKnowledgeDataParser
     {
         // private int studentNameIndex = 4; // 0-based 
         // private int startQuestionsIndex = 8; // 0-based
