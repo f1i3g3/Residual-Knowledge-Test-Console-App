@@ -11,16 +11,15 @@ namespace ConsoleApp
 {
 	public class Generator
 	{
-		public static string Generate(/*DocxCurriculum curriculum, Contingent contingent, List<CheckingDiscipline> checkingDisciplines*/)
+		public static string Generate(DocxCurriculum curriculum, Contingent contingent, List<CheckingDiscipline> checkingDisciplines, List<MarkCriterion> competenceCriterions = null, List<StudentAnswer> studentAnswers = null, List<MidCerificationAssesmentResult> midCertificationResults = null, User user = null)
 		{
-			/*
 			try
 			{
 				var groups = contingent
 				.Where(s => s.CurriculumCode == curriculum.CurriculumCode.Replace("/", "\\")) 
 				.Select(s => s.GroupInContingent)
 				.Distinct()
-				.ToList();
+				.ToList(); // не до конца распарсило
 
 				var disciplines = curriculum.Disciplines.Select(d => d.Implementations[0].Discipline).ToList();
 
@@ -29,37 +28,37 @@ namespace ConsoleApp
 
 				var listOfMarks = new List<MarkCriterion>(); // listOfMarkCreations from server?
 
-				var user = new User("Кузнецов", "Дмитрий", "Владимирович"); // автор ответов - по идее, нужна авторизация/вносить самому
+				user = new User("Кузнецов", "Дмитрий", "Владимирович"); // автор ответов - по идее, нужна авторизация/вносить самому
 				var config = new MsFormsParserConfiguration(4, 8, 3, user); // from where?
 
 				var userChoice = new UserChoice(user, curriculum, contingent, checkingDisciplines);
-				var competenceCriterion = new List<MarkCriterion>
+				competenceCriterions = new List<MarkCriterion>
 				{
-				new MarkCriterion(90, 100, 'A', 5),
-				new MarkCriterion(80, 89, 'B', 4),
-				new MarkCriterion(70, 79, 'C', 4),
-				new MarkCriterion(60, 69, 'D', 3),
-				new MarkCriterion(50, 59, 'E', 3),
-				new MarkCriterion(0, 49, 'F', 2)
-				 }; // откуда брать - это же общие критерии?
+					new MarkCriterion(90, 100, 'A', 5),
+					new MarkCriterion(80, 89, 'B', 4),
+					new MarkCriterion(70, 79, 'C', 4),
+					new MarkCriterion(60, 69, 'D', 3),
+					new MarkCriterion(50, 59, 'E', 3),
+					new MarkCriterion(0, 49, 'F', 2)
+				}; // берутся с сервера?
 
-				var midCertificationResult = new List<MidCerificationAssesmentResult>();
-				var studentAnswers = new List<StudentAnswer>();
+				midCertificationResults = new List<MidCerificationAssesmentResult>();
+				studentAnswers = new List<StudentAnswer>();
 				foreach (var d in checkingDisciplines)
 				{
 					var parser = new ResidualKnowledgeDataParser(d, userChoice.Students);
 					var result = parser.Parse();
-					midCertificationResult.AddRange(result.MidCerificationResults);
+					midCertificationResults.AddRange(result.MidCerificationResults);
 					studentAnswers.AddRange(result.StudentAnswers);
 					d.Questions.AddRange(result.Questions);
 				}
 
-				//
+				/*
 				var mcrParser = new MidCertificationResultsParser(d); // нужен ли?
 				mcrParser.TryParseMidCertificationResults(out midCertificationResult);  // парсер отдельного файла?
-				//
+				*/
 
-				var spreadsheetGenerator = new GoogleSpreadsheetGenerator(userChoice, groups, competenceCriterion, studentAnswers, midCertificationResult);
+				var spreadsheetGenerator = new GoogleSpreadsheetGenerator(userChoice, groups, competenceCriterions, studentAnswers, midCertificationResults);
 				spreadsheetGenerator.Generate(); // exception point
 
 				return null;
@@ -68,8 +67,6 @@ namespace ConsoleApp
 			{
 				return null;
 			}
-			*/
-			return null;
 		}
 	}
 }

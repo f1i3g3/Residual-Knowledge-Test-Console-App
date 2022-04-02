@@ -422,7 +422,8 @@ namespace ConsoleApp
 
         private (char Column, int Row) InsertSheetByGroupsInfo(char column, int row)
         {
-            var values = new List<object> { Headers.SheetDocumentsHeader }; groups.Add(groups[0]);
+            var values = new List<object> { Headers.SheetDocumentsHeader }; 
+            groups.Add(groups[0]);
             foreach (var group in groups)
             {
                 values.Add(group);
@@ -592,5 +593,10 @@ namespace ConsoleApp
             SendBatchUpdateValuesRequest();
             SendBatchUpdateSpreadsheetRequest();
         }
+
+        public void CreateDocument()
+		{
+
+		}
     }
 }

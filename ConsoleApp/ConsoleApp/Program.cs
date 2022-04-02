@@ -13,6 +13,11 @@ namespace ConsoleApp
     {
         static void Main()
         {
+            SampleStart();
+        }
+        
+        static void SampleStart()
+		{
             string path = AppDomain.CurrentDomain.BaseDirectory + "/../../../user_files";
 
             string[] args = new string[]
@@ -25,7 +30,6 @@ namespace ConsoleApp
                 Path.Combine(path, "compArc.txt"),
             };
 
-
             var curriculum = new DocxCurriculum(args[0]);
             var contingent = new Contingent(args[1]); // Контингента нет !!!!!
             var MsFormsAlgebra = args[2];
@@ -35,11 +39,13 @@ namespace ConsoleApp
             var midCerificationResultsAlg = ""; // args[6];
             var midCerificationResultsCompArc = ""; // args[7];
 
+            Console.WriteLine("Files opended!");
+
             var groups = contingent
                 .Where(s => s.CurriculumCode == curriculum.CurriculumCode.Replace("/", "\\"))
                 .Select(s => s.GroupInContingent)
                 .Distinct()
-                .ToList();
+                .ToList(); // не до конца распарсило
 
             var disciplines = curriculum.Disciplines.Take(2).Select(d => d.Implementations[0].Discipline).ToList();
 
@@ -102,7 +108,7 @@ namespace ConsoleApp
                 d.Questions.AddRange(result.Questions);
             }
 
-            midCertificationResult.AddRange(new List<MidCerificationAssesmentResult> 
+            midCertificationResult.AddRange(new List<MidCerificationAssesmentResult>
             {
                 new MidCerificationAssesmentResult("Анон 1", "Алгебра", "5"),
                 new MidCerificationAssesmentResult("Анон 2", "Алгебра", "2"),
@@ -115,7 +121,7 @@ namespace ConsoleApp
                 new MidCerificationAssesmentResult("Анон 10", "Алгебра", "5"),
                 new MidCerificationAssesmentResult("Анон 11", "Алгебра", "5"),
                 new MidCerificationAssesmentResult("Анон 12", "Алгебра", "5"),
-                
+
                 new MidCerificationAssesmentResult("Анон 1", "Архитектура ЭВМ и операционные системы", "4"),
                 new MidCerificationAssesmentResult("Анон 3", "Архитектура ЭВМ и операционные системы", "5"),
                 new MidCerificationAssesmentResult("Анон 2", "Архитектура ЭВМ и операционные системы", "4"),
@@ -133,6 +139,7 @@ namespace ConsoleApp
             spreadsheetGenerator.Generate();
             return;
 
+            /*
             var spreadsheet = new GoogleSpreadsheetParser.GoogleSpreadsheetParser(userChoice.CheckingDisciplines);
             var fileGenerators = new List<IFileGenerator> 
             { 
@@ -142,6 +149,7 @@ namespace ConsoleApp
             };
 
             Parallel.ForEach(fileGenerators, g => g.Generate());
+            */
         }
     }
 }
