@@ -61,7 +61,7 @@ namespace ConsoleApp
 				var spreadsheetGenerator = new GoogleSpreadsheetGenerator(userChoice, groups, competenceCriterions, studentAnswers, midCertificationResults);
 				spreadsheetGenerator.Generate(); // exception point
 
-				return null;
+				return spreadsheetGenerator.spreadsheetId;
 			}
 			catch
 			{

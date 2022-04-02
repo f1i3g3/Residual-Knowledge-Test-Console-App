@@ -21,7 +21,7 @@ namespace ConsoleApp
 
         static readonly string ApplicationName = "ResidualKnowledgeTestApp";
 
-        private string spreadsheetId;
+        internal string spreadsheetId;
         private string sheet;
 
         const string APP_TOKEN_FILE = "../../../credentials.json";
@@ -593,10 +593,5 @@ namespace ConsoleApp
             SendBatchUpdateValuesRequest();
             SendBatchUpdateSpreadsheetRequest();
         }
-
-        public void CreateDocument()
-		{
-
-		}
     }
 }

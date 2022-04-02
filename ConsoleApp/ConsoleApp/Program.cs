@@ -137,6 +137,8 @@ namespace ConsoleApp
 
             var spreadsheetGenerator = new GoogleSpreadsheetGenerator(userChoice, groups, competenceCriterion, studentAnswers, midCertificationResult);
             spreadsheetGenerator.Generate();
+
+            // Console.WriteLine(spreadsheetGenerator.spreadsheetId);
             return;
 
             /*
